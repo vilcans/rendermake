@@ -1,0 +1,20 @@
+RenderMake provides a Makefile for compiling shaders, creating textures
+and rendering using a RenderMan renderer.
+
+Example
+-------
+A project with a RIB file (hello.rib), a shader (plastic_deluxe.sl)
+and a texture (squares.tif).
+
+Contents of Makefile:
+
+    include rendermake.mk
+
+    hello.tif : hello.rib plastic_deluxe.$(SHADER_EXT)
+            $(RENDER) hello.rib
+
+Run the following command:
+
+    make --include <location of rendermake.mk>
+
+This compiles the shader and creates the texture, then renders the image.
